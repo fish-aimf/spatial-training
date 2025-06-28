@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial IQ Training</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <h1>Spatial IQ Training</h1>
+        <div class="mode-switch">
+            <label>
+                <input type="radio" name="mode" value="practice" checked> Practice Mode
+                (Slower timing, hints available)
+            </label>
+            <label>
+                <input type="radio" name="mode" value="challenge"> Challenge Mode
+                (Fast-paced, no hints)
+            </label>
+        </div>
+        <div>
+            <label>
+                Grid Size:
+                <input type="number" id="customSize" min="5" max="50" value="10" style="width: 60px;">
+            </label>
+            <label>
+                Number of Targets:
+                <select id="targetCount">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label>
+            <label>
+                <input type="checkbox" id="showHints"> Enable Hints
+            </label>
+            <button onclick="startGame()">New Game</button>
+            <span id="difficultyRating" class="difficulty-badge"></span>
+        </div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #ff4444;"></div>
+                <span>Target Points</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4444ff;"></div>
+                <span>Your Guess</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #44ff44;"></div>
+                <span>Optimal Point</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="grid-container">
+            <div class="timer">Time: <span id="timer">0.0</span>s</div>
+            <div id="grid" class="grid"></div>
+        </div>
+        <div class="stats-container">
+            <h2>Statistics</h2>
+            <div class="score">
+                Average Distance Error: <span id="score">0</span> cells
+            </div>
+            <div class="score">
+                Average Time: <span id="avgTime">0.0</span>s
+            </div>
+            <h3>Recent Attempts</h3>
+            <div id="attemptList" class="attempt-list"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<div class="mode-switch">
+    <label>
+        <input type="radio" name="mode" value="practice" checked> Practice Mode
+        (Slower timing, hints available)
+    </label>
+    <label>
+        <input type="radio" name="mode" value="challenge"> Challenge Mode
+        (Fast-paced, no hints)
+    </label>
+    <label>
+        <input type="radio" name="mode" value="gridless"> Gridless Mode
+        (No grid lines, extra challenge)
+    </label>
+</div>
